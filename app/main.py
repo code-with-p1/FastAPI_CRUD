@@ -8,6 +8,10 @@ app = FastAPI(title="User CRUD API with SQLite")
 # Initialize SQLite database
 init_db()
 
+@app.get("/")
+def index():
+    return "This User CRUD API with SQLite Project"
+
 # Mount routes
 app.include_router(async_router, prefix="/async", tags=["Async"])
 app.include_router(sync_router, prefix="/sync", tags=["Sync"])
